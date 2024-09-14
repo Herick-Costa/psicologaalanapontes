@@ -277,6 +277,104 @@ main {
 
 
 
+/* Seletor mais específico para os botões dentro de .custom-content */
+
+.custom-content {
+  text-align: center; /* Centraliza o texto e elementos inline dentro da div */
+}
+.custom-content button {
+  display: inline-block; /* Garante que o botão se comporte como um bloco inline para centralização */
+  margin: 10px; /* Adiciona um pouco de espaçamento ao redor dos botões */
+}
+
+.custom-content button a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #3f3538;
+  text-transform: uppercase;
+  color: #3f3538;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  
+}
+
+
+/* Remover qualquer efeito de hover */
+.custom-content button:hover::before,
+.custom-content button:hover::after {
+  transform: none; /* Garante que não haja transformação ao passar o mouse */
+  transition: none; /* Remove qualquer transição ao passar o mouse */
+}
+
+.custom-content button a::before,
+.custom-content button a::after {
+  content: '';
+  position: absolute;
+  transition: none;
+}
+
+.custom-content button a::before {
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background-color: #a8766d;
+  transform: scaleY(1);
+  animation: slideY 3s infinite;
+}
+
+.custom-content button a::after {
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background-color: #a8766d;
+  transform: scaleX(1);
+  animation: slideX 3s infinite;
+}
+
+.custom-content button a span {
+  position: relative;
+  z-index: 3;
+}
+
+
+.custom-content button {
+  background-color: none;
+  text-decoration: none;
+  background-color: #a8766d;
+  border: none;
+}
+
+/* Keyframes for the animation */
+@keyframes slideY {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slideX {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+
+
 
 
 
@@ -657,4 +755,9 @@ footer {
   .intro-text h2 {
     font-size: 1.2em;
   }
+}
+
+footer h3{
+  text-align: center;
+  color: #000000;
 }
